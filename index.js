@@ -12,7 +12,8 @@ import authRoutes from "./routes/authRoutes.js";
 import transactionRoutes from "./routes/transactionRoutes.js";
 import swaggerSpec from "./config/swagger.js";
 import errorHandler from "./middleware/errorHandler.js";
-
+import adminRoutes from "./routes/adminRoutes.js";
+import uploadRoutes from './routes/uploadRoutes.js';
 
 dotenv.config();
 
@@ -26,8 +27,11 @@ app.use(morgan("dev"));
 app.use(errorHandler);
 
 app.use("/auth", authRoutes);
+app.use("/admin", adminRoutes);
 app.use("/transactions", transactionRoutes);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.use('/api/upload', uploadRoutes);
 
 app.use(
   rateLimit({
