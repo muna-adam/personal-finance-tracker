@@ -35,7 +35,7 @@ personal-finance-tracker/
 Clone the repository:
 
 ```bash
-git clone [https://github.com/muna-adam/personal-finance-tracker.git](https://github.com/muna-adam/personal-finance-tracker/tree/master)
+git clone (https://github.com/muna-adam/personal-finance-tracker/tree/master)
 ```
 
 Navigate to the project:
