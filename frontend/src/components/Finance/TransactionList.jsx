@@ -69,10 +69,6 @@ const TransactionList = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-//   const filteredTransactions = transactions.filter(transaction => {
-//   const matchesSearch = transaction.title.toLowerCase().includes(searchTerm.toLowerCase());
-//   return matchesSearch;
-// });
 
   const safeTransactions = Array.isArray(transactions)
     ? transactions

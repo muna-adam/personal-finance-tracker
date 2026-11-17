@@ -23,13 +23,13 @@ export const extractErrorMessage = (error) => {
         }
     }
 
-    // handle network error
+    
 
     if(error.response && !error.response){
         return "Network Error, Please check your connection"
     }
 
-    // fall back to general errors
+  
 
     if(error.message){
         return error.message

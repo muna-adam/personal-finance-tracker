@@ -42,7 +42,6 @@ const TRANSACTION_CONFIG = {
 const TransactionCard = ({
   transaction,
   onEdit,
-  onDeleteTransaction,
   isLoading = false,
 }) => {
   const [showDeleteDialog, setshowDeleteDialog] = useState(false);
