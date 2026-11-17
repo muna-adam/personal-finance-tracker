@@ -11,7 +11,7 @@ export const transactionSchema = z.object({
     .finite()
     .positive("Amount must be greater than zero"),
 
-  type: z.enum(["income", "expense"]),
+  type: z.enum(["income", "expense", "savings"],),
 
   category: z.string()
     .trim()

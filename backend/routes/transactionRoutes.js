@@ -86,7 +86,7 @@ router.get("/monthly-summary", getMonthlySummary);
  */
 router.post(
   "/",
-  validate(transactionSchema),
+  validate(transactionSchema),protect,
   createTransaction
 );
 
@@ -119,7 +119,7 @@ router.post(
  *       401:
  *         description: Authentication required
  */
-router.get("/", getTransactions);
+router.get("/", protect,  getTransactions);
 
 
 /**

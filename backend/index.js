@@ -6,6 +6,8 @@ import morgan from "morgan";
 import rateLimit from "express-rate-limit";
 import mongoose from "mongoose";
 import swaggerUi from "swagger-ui-express";
+import path from 'path'
+import { fileURLToPath } from "url";
 
 
 import authRoutes from "./routes/authRoutes.js";
@@ -26,12 +28,27 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(errorHandler);
 
-app.use("/auth", authRoutes);
-app.use("/admin", adminRoutes);
-app.use("/transactions", transactionRoutes);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/transactions", transactionRoutes);
+app.use("/api/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api/upload', uploadRoutes);
+
+// Server fronted in Production
+
+if(process.env.NODE_ENV === "production") {
+
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+    app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+    app.get(/.*/, (req, res) => {
+    res.send(path.join(__dirname, '..', 'frontend', 'dist', 'index.html'));
+})
+
+}
+
 
 app.use(
   rateLimit({
