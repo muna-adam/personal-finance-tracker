@@ -1,13 +1,10 @@
-
-import { Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/auth/loginpage';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import Dashboard from './pages/Dashboard/Dashboard';
-import { Navigate } from 'react-router-dom';
-import ProtectedRoute from './components/auth/protectedRoute';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import { AdminProtectedRoute } from './components/auth/AdminProtectedRoute';
-import  Admin  from './pages/Dashboard/Admin';
-
+import Admin from './pages/Dashboard/Admin';
 
 
 function App () {
